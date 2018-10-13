@@ -6,6 +6,7 @@
     margin-top: 3%;
     border-radius: 25px;
     padding-bottom: 2%;
+    min-height: 450px;
 }
 
 .container li {
