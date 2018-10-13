@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BackendapiService } from '../../services/backendapi.service'
+import { BackendapiService } from '../../../services/backendapi.service'
 
 @Component({
   selector: 'app-details',
