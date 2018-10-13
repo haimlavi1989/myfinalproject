@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendapiService } from './feature/services/backendapi.service'
+import { post } from './shared/post.module'
+import { task } from './shared/task.module'
+import { user } from './shared/user.module'
 
 @Component({
   selector: 'app-root',
@@ -8,9 +11,9 @@ import { BackendapiService } from './feature/services/backendapi.service'
 })
 export class AppComponent implements OnInit {
 
-  users: any[] = [];
-  posts: any[] = [];
-  tasks: any[] = [];
+  users: user[] = [];
+  posts: post[] = [];
+  tasks: task[] = [];
 
   constructor( private servece: BackendapiService ) { }
 

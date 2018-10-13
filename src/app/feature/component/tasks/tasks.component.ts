@@ -1,21 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BackendapiService } from '../../services/backendapi.service'
+import { task } from '../../../shared/task.module'
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
 })
-export class TasksComponent implements OnInit {
+export class TasksComponent implements OnInit, OnDestroy {
 
-  tasks: any[] = [];
+  private httpSubscription: Subscription;
+  tasks: task[] = [];
   status: string = "all";
 
   constructor( private servece: BackendapiService ) { }
 
   ngOnInit() {
-    this.servece.getTasks().subscribe( response => 
+    this.httpSubscription = this.servece.getTasks().subscribe( response => 
         this.tasks = this.servece.tasks
       );
   }
 
+  ngOnDestroy() {
+    this.httpSubscription.unsubscribe();
+  }
 }

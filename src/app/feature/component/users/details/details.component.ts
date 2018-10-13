@@ -1,25 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BackendapiService } from '../../../services/backendapi.service'
+import { Subscription } from 'rxjs';
+import { address } from '../../../../shared/address.module';
+import { user } from '../../../../shared/user.module';
+import { post } from '../../../../shared/post.module';
+import { task } from '../../../../shared/task.module';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit, OnDestroy {
+
+  private httpSubscription: Subscription;
   id: number = 0;
-  userData: any = {'name': '', 'email': '', 'address': {'city': ''}};
+  userData: user;
+  address: address;
   update: boolean = false;
   delete: boolean = false;
-  postsData: any[] =  [{'userId': '', 'title': ''}];
-  tasksData: any[] = [{'userId': '', 'title': ''}];
+  postsData: post[]; 
+  tasksData: task[];
 
   constructor( private ActivatedR: ActivatedRoute, private service: BackendapiService, private router: Router) {
+    this.address = new address("");
+    this.userData = new user(0, "", "", this.address);
+    this.postsData = null;
+    this.tasksData = null;
   }
 
   ngOnInit() {
-    this.ActivatedR.queryParamMap.subscribe( data => {
+    this.httpSubscription = this.ActivatedR.queryParamMap.subscribe( data => {
 
       this.id = +this.ActivatedR.snapshot.params.id-1;
 
@@ -31,6 +43,10 @@ export class DetailsComponent implements OnInit {
       this.tasksData = this.service.tasks.filter( cell => cell.userId == this.id+1 );
 
     });
+  }
+
+  ngOnDestroy() {
+    this.httpSubscription.unsubscribe();
   }
 
   mainpage() {

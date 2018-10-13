@@ -1,25 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BackendapiService } from '../../services/backendapi.service'
+import { post } from '../../../shared/post.module'
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 })
-export class PostsComponent implements OnInit {
+export class PostsComponent implements OnInit, OnDestroy  {
 
-  posts: any[] = [];
-  usersnames: any[] = [];
+  private httpSubscription: Subscription;
+  posts: post[] = [];
+  usersnames: string[] = [];
   id: number = 0;
    
   constructor( private servece: BackendapiService ) { }
 
   ngOnInit() {
        //this.posts = this.servece.posts;
-        this.servece.getPosts().subscribe( response => {
+      this.httpSubscription = this.servece.getPosts().subscribe( response => {
           this.posts = this.servece.posts
           this.usersnames = this.servece.users.map( cell => cell.name)
         });
+  }
+
+  ngOnDestroy() {
+    this.httpSubscription.unsubscribe();
   }
 
 }

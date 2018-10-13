@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendapiService } from '../../../services/backendapi.service'
+import { user } from '../../../../shared/user.module'
 
 @Component({
   selector: 'app-search',
@@ -8,7 +9,7 @@ import { BackendapiService } from '../../../services/backendapi.service'
 })
 export class SearchComponent {
  
-  filterUsers: any[] = [];
+  filterUsers: user[] = [];
   searching: boolean = false;
 
   constructor( private service: BackendapiService ) { }

@@ -1,44 +1,48 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { post } from '../../shared/post.module';
+import { task } from '../../shared/task.module';
+import { user } from '../../shared/user.module';
+
+const usersurl: string = "https://jsonplaceholder.typicode.com/users";
+const postsurl: string = "https://jsonplaceholder.typicode.com/posts";
+const tasksurl: string = "https://jsonplaceholder.typicode.com/todos";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class BackendapiService {
 
-  public users: any[] = [];
-  public posts: any[] = [];
-  public tasks: any[] = [];
-
-  usersurl: string = "https://jsonplaceholder.typicode.com/users";
-  postsurl: string = "https://jsonplaceholder.typicode.com/posts";
-  tasksurl: string = "https://jsonplaceholder.typicode.com/todos";
+  public users: user[] = [];
+  public posts: post[] = [];
+  public tasks: task[] = [];
 
   constructor(private http: HttpClient) {
   }
 
   getUsers() {
-    return this.http.get<any[]>(this.usersurl);
+    return this.http.get<user[]>(usersurl);
   }
 
-  setUsers(users: any) {
+  setUsers(users: user[]) {
     this.users = users;
   }
 
 
   getPosts() {
-    return this.http.get<any[]>(this.postsurl);
+    return this.http.get<post[]>(postsurl);
   }
 
-  setPosts(posts: any) {
+  setPosts(posts: post[]) {
     this.posts = posts;
   }
 
   getTasks() {
-    return this.http.get<any[]>(this.tasksurl);
+    return this.http.get<task[]>(tasksurl);
   }
 
-  setTasks(tasks: any) {
+  setTasks(tasks: task[]) {
     this.tasks = tasks;
   }
 }
