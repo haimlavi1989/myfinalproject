@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BackendapiService } from '../../src/app/services/backendapi.service';
+import { BackendapiService } from './feature/component/services/backendapi.service';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './feature/component/users/users.component';
@@ -13,8 +13,8 @@ import { AllComponent } from './feature/component/users/all/all.component';
 import { AddComponent } from './feature/component/users/add/add.component';
 import { SearchComponent } from './feature/component/users/search/search.component';
 import { DetailsComponent } from './feature/component/users/details/details.component';
-import { FilterbyuseridPipe } from './pipe/filterbyuserid.pipe';
-import { FelterbystatusPipe } from './pipe/felterbystatus.pipe';
+import { FilterbyuseridPipe } from './feature/component/pipe/filterbyuserid.pipe';
+import { FelterbystatusPipe } from './feature/component/pipe/felterbystatus.pipe';
 
 const appRoutes : Routes = [
   { path : 'users' , component : UsersComponent,

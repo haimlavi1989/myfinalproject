@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendapiService } from './../../../../services/backendapi.service'
+import { BackendapiService } from '../../services/backendapi.service'
 
 @Component({
   selector: 'app-all',
