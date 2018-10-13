@@ -1,0 +1,41 @@
+.container {
+    padding-top: 2%;
+    margin-top: 8%;
+    padding-left: 10%;
+}
+
+.searchbutton {
+    padding-right: 2%;
+    padding-left: 2%;
+}
+
+.container ul a {
+    text-decoration: none;
+    color: black;
+}
+
+.container li {
+    list-style-type: none;
+    padding: 1% 1% 1% 1%;
+    background-color: aliceblue;
+    width: 231px;
+    text-align: center;
+}
+
+.container li:hover {
+    background-color: aquamarine;
+}
+.container ul {
+
+   padding: 0;
+}
+
+.nomatch {
+    margin-top: 5px;
+    color: #a94442;
+}
+
+input[type="text"] {
+    width: 57%;
+}
+

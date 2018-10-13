@@ -1,0 +1,7 @@
+<div class="container">
+    <nav>
+        <ul>
+            <a *ngFor="let user of users" [routerLink]="['/users', user.id ]" routerLinkActive="active-link"><li>{{ user.name }}</li></a>
+        </ul>
+      </nav> 
+</div>

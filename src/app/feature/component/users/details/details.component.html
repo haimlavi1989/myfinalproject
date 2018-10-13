@@ -1,0 +1,57 @@
+<div class="container">
+        <form #f="ngForm" (ngSubmit)="customSubmit(f.valid)">
+
+                <div class="">
+                        <div><label for="fullname">Full name: </label></div>
+                        <input type="text" #fullname="ngModel"  minlength="2" required [(ngModel)]="userData.name" name="fullname" >
+                        <div class="usererrors">
+                          <div *ngIf="fullname.invalid && fullname.errors.required">Can not be emptey.</div>
+                          <div *ngIf="fullname.invalid && fullname.errors.minlength">Must contain 2 chars minimum</div>
+                        </div>  
+                </div>
+                
+                <div class="">
+                        <div><label for="email">Email: </label></div>
+                        <input type="text" #email="ngModel" required email [(ngModel)]="userData.email" name="email" >
+                        <div class="emailerrors">
+                          <div *ngIf="email.invalid && email.errors.required">Can not be emptey.</div>
+                          <div *ngIf="email.invalid && email.errors.email">Must contain a valid email.</div>
+                        </div>
+                </div>
+        
+                <div class="">
+                        <div><label for="city">City: </label></div>
+                        <input type="text" #city="ngModel" minlength="2" required [(ngModel)]="userData.address.city" name="city" >
+                        <div class="cityerrors">
+                          <div *ngIf="city.invalid && city.errors.required">Can not be emptey.</div>
+                          <div *ngIf="city.invalid && city.errors.minlength">Must contain 2 chars minimum</div>
+                        </div>  
+                </div> 
+                <br>
+                <div class="">
+                   <div>Posts:</div>     
+                   <ul>
+                     <li *ngFor="let post of postsData">
+                        {{ post.title }}     
+                     </li>
+                   </ul>          
+
+                </div>
+
+                <div class="">
+                   <div>Tasks:</div>  
+                   <ul>
+                     <li *ngFor="let task of tasksData">
+                        {{ task.title }}     
+                     </li>
+                   </ul>          
+                </div>
+        
+                <div class="">
+                        <input type="submit" value="update" class="updatebutton" (click)="update=true">
+                        <input type="submit" value="delete" class="deletebutton" (click)="delete=true">
+                </div>
+                
+        </form> 
+</div>
+ 

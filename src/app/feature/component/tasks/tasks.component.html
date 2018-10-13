@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="rdioarea">
+        <div>
+            <label for="all">All</label>
+            <input type="radio" #allradio name="felterbystatus" value="all" checked (change)="status=allradio.value"/>
+
+            <label for="completed">Completed</label>
+            <input type="radio" #completedradio name="felterbystatus" value="true" (change)="status=completedradio.value"/>
+
+            <label for="unompleted">Uncompleted</label>
+            <input type="radio" #unompletedradio name="felterbystatus" value="false" (change)="status=unompletedradio.value"/>
+        </div>
+    </div>
+   <table>
+      <tr>
+          <td> Task title </td> 
+          <td> User Id </td> 
+          <td> Completed </td>
+      </tr>
+     <tr *ngFor="let task of (tasks | felterbystatus : status)" [ngClass]="{ 'completedtask':task.completed == true }">
+       <td>{{ task.title }}</td> 
+       <td>{{ task.userId }}</td> 
+       <td>{{ task.completed }}</td> 
+     </tr>
+   </table>  
+</div>  

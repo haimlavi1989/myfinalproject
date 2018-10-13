@@ -1,0 +1,17 @@
+<div class="container">
+            <div class="">
+                <div><label for="search">Search: </label></div>
+                <input type="text" #search  name="search">
+                <input type="button" value="Search" class="searchbutton" (click)="Search(search.value, true)">
+                <div *ngIf="filterUsers.length == 0 && searching == true" class="nomatch">No match was found.</div>
+                <div class="searchresultes" *ngIf="filterUsers.length > 0 && search.value != '' ">
+                    <ul>
+                        <a *ngFor="let user of filterUsers" [routerLink]="['/users', user.id ]" routerLinkActive="active-link">
+                          <li > {{ user.name }} </li>
+                        </a>
+                    </ul>  
+                </div>  
+            </div>
+</div>
+
+
