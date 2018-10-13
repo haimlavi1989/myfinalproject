@@ -7,16 +7,13 @@ import { Router } from '@angular/router';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
-export class AddComponent implements OnInit {
+export class AddComponent {
 
   id: number = 0;
   userData: any = {'id': '', 'name': '', 'email': '', 'address': {'city': ''}};
   save: boolean = false;
 
   constructor( private service: BackendapiService, private router: Router ) {
-  }
-
-  ngOnInit() {
   }
 
   mainpage() {
@@ -29,7 +26,6 @@ export class AddComponent implements OnInit {
       if ( this.save == true ) {
         this.userData.id = this.service.users.length + 1;
         this.service.users.push(this.userData);
-        console.log(this.service.users);
         this.save = false;
         this.mainpage();
   
