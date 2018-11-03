@@ -50,6 +50,13 @@
                 <div class="">
                         <input type="submit" value="update" class="updatebutton" (click)="update=true">
                         <input type="submit" value="delete" class="deletebutton" (click)="delete=true">
+                        <span *ngIf="id+2 >= 0 &&  id+2 <= userslength">
+                          <input type="submit" value="next" class="deletebutton" [routerLink]="['/users', id+2 ]">
+                        </span>
+                        <span *ngIf="id-1 >= 0 &&  id-1 <= userslength">
+                           <input type="submit" value="back" class="deletebutton" [routerLink]="['/users', id ]">
+                        </span>
+                        
                 </div>
                 
         </form> 
