@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendapiService } from '../../../services/backendapi.service'
-import { user } from '../../../../shared/user.module'
+import { user } from '../../../../shared/user'
 
 @Component({
   selector: 'app-search',

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BackendapiService } from '../../services/backendapi.service'
-import { post } from '../../../shared/post.module'
+import { post } from '../../../shared/post'
 import { Subscription } from 'rxjs';
 
 @Component({

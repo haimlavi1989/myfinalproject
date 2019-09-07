@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { post } from '../../shared/post.module';
-import { task } from '../../shared/task.module';
-import { user } from '../../shared/user.module';
+import { post } from '../../shared/post';
+import { task } from '../../shared/task';
+import { user } from '../../shared/user';
 
 const usersurl: string = "https://jsonplaceholder.typicode.com/users";
 const postsurl: string = "https://jsonplaceholder.typicode.com/posts";

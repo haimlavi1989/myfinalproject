@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { post } from '../../shared/post.module';
+import { post } from '../../shared/post';
 
 @Pipe({
   name: 'filterbyuserid'

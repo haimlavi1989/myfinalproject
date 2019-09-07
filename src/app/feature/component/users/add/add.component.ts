@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { BackendapiService } from '../../../services/backendapi.service'
 import { Router } from '@angular/router';
-import { user } from '../../../../shared/user.module';
-import { address } from '../../../../shared/address.module';
+import { user } from '../../../../shared/user';
+import { address } from '../../../../shared/address';
 
 @Component({
   selector: 'app-add',

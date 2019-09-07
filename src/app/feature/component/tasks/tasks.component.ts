@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BackendapiService } from '../../services/backendapi.service'
-import { task } from '../../../shared/task.module'
+import { task } from '../../../shared/task'
 import { Subscription } from 'rxjs';
 
 @Component({

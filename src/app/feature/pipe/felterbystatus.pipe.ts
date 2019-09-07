@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { task } from '../../shared/task.module';
+import { task } from '../../shared/task';
 
 @Pipe({
   name: 'felterbystatus'

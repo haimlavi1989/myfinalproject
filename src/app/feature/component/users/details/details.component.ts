@@ -2,10 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { BackendapiService } from '../../../services/backendapi.service'
 import { Subscription } from 'rxjs';
-import { address } from '../../../../shared/address.module';
-import { user } from '../../../../shared/user.module';
-import { post } from '../../../../shared/post.module';
-import { task } from '../../../../shared/task.module';
+import { address } from '../../../../shared/address';
+import { user } from '../../../../shared/user';
+import { post } from '../../../../shared/post';
+import { task } from '../../../../shared/task';
 
 @Component({
   selector: 'app-details',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendapiService } from './feature/services/backendapi.service'
-import { post } from './shared/post.module'
-import { task } from './shared/task.module'
-import { user } from './shared/user.module'
+import { post } from './shared/post'
+import { task } from './shared/task'
+import { user } from './shared/user'
 
 @Component({
   selector: 'app-root',

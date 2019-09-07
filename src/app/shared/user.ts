@@ -1,4 +1,4 @@
-import { address } from './address.module';
+import { address } from './address';
 
 export class user {
    
